@@ -13,7 +13,8 @@
   <div class="flex-container" name="upper" id="upper">
     <div class="flex-child">
       <p>
-“His life had been tied to the past. He’d seen himself a point on a moving wavefront, propagating through sterile history—a known past, a projectable future. But she was the breaking of the wave. Suddenly there was a beach, the unpredictable… new life. Past and future stopped at the beach: that was how he’d set it out. But he wanted to believe it too, the same way he loved her, past all words—believe that no matter how bad the time, nothing was fixed, everything could be changed and she could always deny the dark sea at his back, love it away. And (selfishly) that from a somber youth, squarely founded on Death—along for Death’s ride—he might, with her, find his way to life and to joy.”      </p>
+        “His life had been tied to the past. He’d seen himself a point on a moving wavefront, propagating through sterile history—a known past, a projectable future. But she was the breaking of the wave. Suddenly there was a beach, the unpredictable… new life. Past and future stopped at the beach: that was how he’d set it out. But he wanted to believe it too, the same way he loved her, past all words—believe that no matter how bad the time, nothing was fixed, everything could be changed and she could always deny the dark sea at his back, love it away. And (selfishly) that from a somber youth, squarely founded on Death—along for Death’s ride—he might, with her, find his way to life and to joy.”      
+      </p>
     </div>
     <div class="flex-child">
       <img id="placeholder" src="/assets/placeholder.png" alt="logo"> 
@@ -24,10 +25,10 @@
     <div class="flex-child" name="lower" id="lower">
       
         <label>Username:</label><br>
-        <input id="name" name="name" value="name">
+          <input id="name" name="name" value="name">
         <br />
         <label for="comment">Comments:</label><br>
-        <textarea rows="4" cols="50" name="comment" id="comment" form="comment-form"> Enter text here...</textarea>
+          <textarea rows="4" cols="50" name="comment" id="comment" form="comment-form"> Enter text here...</textarea>
         <br />
         <button onClick="submitClick()">Submit</button>
     </div>
@@ -43,6 +44,8 @@
   </div>
 
 <script>
+
+
   function submitClick() {
     const username = document.querySelector('#name').value;
     const comment = document.getElementById("comment").value;
