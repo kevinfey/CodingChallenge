@@ -1,5 +1,77 @@
 {% extends "layout.njk" %}
+{% block body %}
+  <nav class="header" class="li-nav">
+    <ul>
+      <h1>
+        <li class="li-nav"><a href="/"><img src="/assets/logo.png" alt="logo"></li></a>
+        <li class="li-nav" class="right"><a href="#upper">Upper Section</a></li>
+        <li class="li-nav" class="right"><a href="#lower">Lower Section</a></li>
+      </h1>
+    </ul>
+  </nav>
 
-{% block content %}
-<h1>Hello, world!</h1>
+  <div class="flex-container" name="upper" id="upper">
+    <div class="flex-child">
+      <p>
+“His life had been tied to the past. He’d seen himself a point on a moving wavefront, propagating through sterile history—a known past, a projectable future. But she was the breaking of the wave. Suddenly there was a beach, the unpredictable… new life. Past and future stopped at the beach: that was how he’d set it out. But he wanted to believe it too, the same way he loved her, past all words—believe that no matter how bad the time, nothing was fixed, everything could be changed and she could always deny the dark sea at his back, love it away. And (selfishly) that from a somber youth, squarely founded on Death—along for Death’s ride—he might, with her, find his way to life and to joy.”      </p>
+    </div>
+    <div class="flex-child">
+      <img id="placeholder" src="/assets/placeholder.png" alt="logo"> 
+    </div>
+  </div>
+
+  <div class="flex-container" >
+    <div class="flex-child" name="lower" id="lower">
+      
+        <label>Username:</label><br>
+        <input id="name" name="name" value="name">
+        <br />
+        <label for="comment">Comments:</label><br>
+        <textarea rows="4" cols="50" name="comment" id="comment" form="comment-form"> Enter text here...</textarea>
+        <br />
+        <button onClick="submitClick()">Submit</button>
+    </div>
+    <div class="flex-child">
+      <ul id="comment-section">
+        <li>You may never get to touch the Master, but you can tickle his creatures.</li>
+        <li>The innocence of the creature is in inverse proportion to the immorality of the Master.</li>
+        <li>If they can get you asking the wrong questions, they don't have to worry about answers.</li>
+        <li>You hide, They seek.</li>
+        <li>Paranoids are not paranoids because they're paranoid, but because they keep putting themselves, fucking idiots, deliberately into paranoid situations.</li>
+      </ul>  
+    </div>
+  </div>
+
+<script>
+  function submitClick() {
+    const username = document.querySelector('#name').value;
+    const comment = document.getElementById("comment").value;
+    const payload = { username: username, comment: comment };
+
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      const ul = document.querySelector("#comment-section");
+      let li = document.createElement("li")
+      li.appendChild(document.createTextNode(data.comment))
+      ul.appendChild(li)
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+
+  }
+</script>
+
 {% endblock %}
+
+
+
